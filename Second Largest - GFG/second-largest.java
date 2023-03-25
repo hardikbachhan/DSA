@@ -41,9 +41,9 @@ class Solution {
         
         for (int i = 1; i < n; i++) {
             if (arr[i] > largestNum) {
-                if (largestNum > secondLargestNum) {
+                // if (largestNum > secondLargestNum) {
                     secondLargestNum = largestNum;
-                }
+                // }
                 largestNum = arr[i];
             } else if (arr[i] < largestNum) {
                 int diff1 = largestNum - arr[i];
