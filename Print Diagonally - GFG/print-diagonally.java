@@ -36,7 +36,14 @@ class GFG
 
 class Solution{
     
-    // static void addToRes(int mat[][], )
+    static void addToRes(int A[][], int r, int c, ArrayList<Integer> res) {
+        int N = A.length;
+        while (r < N && c >= 0) {
+            res.add(A[r][c]);
+            r++;
+            c--;
+        }
+    }
     
     static ArrayList<Integer> downwardDiagonal(int N, int A[][])
     {
@@ -68,21 +75,13 @@ class Solution{
         for (int row = 0, col = 0; col < N; col++) {
             int r = row, c = col;
             
-            while (r < N && c >= 0) {
-                res.add(A[r][c]);
-                r++;
-                c--;
-            }
+            addToRes(A, r, c, res);
         }
         
         for (int row = 1, col = N - 1; row < N; row++) {
             int r = row, c = col;
             
-            while (r < N && c >= 0) {
-                res.add(A[r][c]);
-                r++;
-                c--;
-            }
+            addToRes(A, r, c, res);
         }
         
         return res;
