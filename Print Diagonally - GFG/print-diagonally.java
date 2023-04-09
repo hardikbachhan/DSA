@@ -35,31 +35,54 @@ class GFG
 //User function Template for Java
 
 class Solution{
+    
+    // static void addToRes(int mat[][], )
+    
     static ArrayList<Integer> downwardDiagonal(int N, int A[][])
     {
         // code here
         
         ArrayList<Integer> res = new ArrayList<>();
         
+        // int r = 0, nc = 0;
         
-        int r = 0, nc = 0;
+        // while (true) {
+        //     boolean flag = true;
+        //     for (int c = nc; c >= 0; c--) {
+        //         if (r >= 0 && r < N && c >= 0 && c < N) {
+        //             flag = false;
+        //             res.add(A[r][c]);
+        //         }
+        //         r++;
+        //     }
+            
+        //     if (flag == true) {
+        //         break;
+        //     }
+            
+        //     r = 0;
+        //     nc++;
+        // }
         
-        while (true) {
-            boolean flag = true;
-            for (int c = nc; c >= 0; c--) {
-                if (r >= 0 && r < N && c >= 0 && c < N) {
-                    flag = false;
-                    res.add(A[r][c]);
-                }
+        
+        for (int row = 0, col = 0; col < N; col++) {
+            int r = row, c = col;
+            
+            while (r < N && c >= 0) {
+                res.add(A[r][c]);
                 r++;
+                c--;
             }
+        }
+        
+        for (int row = 1, col = N - 1; row < N; row++) {
+            int r = row, c = col;
             
-            if (flag == true) {
-                break;
+            while (r < N && c >= 0) {
+                res.add(A[r][c]);
+                r++;
+                c--;
             }
-            
-            r = 0;
-            nc++;
         }
         
         return res;
